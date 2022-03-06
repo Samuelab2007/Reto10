@@ -3,15 +3,11 @@ import java.util.List;
 
 public class Reto10 {
 
-    public static int sumaDeDigitos(int n,int sumaUnidades){
-        if(n/10 == 0){
-            sumaUnidades += n;
-        }else{
-            sumaUnidades = n%10 + sumaDeDigitos(n/10,sumaUnidades);
-        }
-        return sumaUnidades;
+    public static int sumaDeDigitos(int n){
+        if (n == 0)
+            return 0;
+        return (n % 10 + sumaDeDigitos(n / 10));
     }
-    //Para un valor acertado es necesario llamarlo con el segundo parametro valiendo 0.
 
     public static List<Double> raicesCuadradas(List<Double> numeros){
         return numeros.stream().map(a->Math.sqrt(a)).toList();
@@ -26,7 +22,7 @@ public class Reto10 {
         numeros.add(4.0);
         numeros.add(45.32);
         numeros.add(100.0);
-        System.out.println(sumaDeDigitos(5876,0));
+        System.out.println(sumaDeDigitos(5876));
 
         System.out.println(raicesCuadradas(numeros));
 
