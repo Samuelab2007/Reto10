@@ -23,6 +23,7 @@ public class Reto10 {
         estudiantes.add(new Estudiante("Daniela", "Gomez", 4.3));
         estudiantes.add(new Estudiante("Sara", "Camargo", 4.5));
         System.out.println("Media de promedios de los estudiantes:" + Estudiante.mediaPromediosEstudiantes(estudiantes));
+        System.out.println("Estudiante con mejor promedio:" + Estudiante.mayorPromedio(estudiantes));
     }
 
     public static int sumaDeDigitos(int n){
@@ -32,7 +33,9 @@ public class Reto10 {
     }
 
     public static List<Double> raicesCuadradas(List<Double> numeros){
-        return numeros.stream().map(a->Math.sqrt(a)).toList();
+        return numeros.stream()
+                .map(a->Math.sqrt(a))
+                .toList();
     }
 
 

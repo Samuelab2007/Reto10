@@ -11,7 +11,22 @@ public class Estudiante {
         this.promedio = promedio;
     }
 
-    public static double mediaPromediosEstudiantes(List<Estudiante> estudiantes){
-        return estudiantes.stream().map(estudiante -> estudiante.promedio).mapToDouble(Double::doubleValue).average().getAsDouble();
+    public static double mediaPromediosEstudiantes(List<Estudiante> e){
+
+        return e.stream()
+                .map(estudiante -> estudiante.promedio)
+                .mapToDouble(Double::doubleValue)
+                .average()
+                .orElseThrow();
+    }
+
+    public static StringBuilder mayorPromedio(List<Estudiante> e) {
+        StringBuilder miEstudiante = new StringBuilder();
+        double valorMaximo = e.stream().map(estudiante -> estudiante.promedio).max(Double::compare).orElseThrow();
+                e.stream()
+                .filter(unEstudiante -> unEstudiante.promedio == valorMaximo)
+                .forEach(estudiante -> miEstudiante.append(estudiante.nombre).append(" ").append(estudiante.apellido));
+                return miEstudiante;
+
     }
 }
