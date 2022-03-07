@@ -21,12 +21,20 @@ public class Estudiante {
     }
 
     public static StringBuilder mayorPromedio(List<Estudiante> e) {
-        StringBuilder miEstudiante = new StringBuilder();
+        StringBuilder estudianteMayorPromedio = new StringBuilder();
         double valorMaximo = e.stream().map(estudiante -> estudiante.promedio).max(Double::compare).orElseThrow();
                 e.stream()
                 .filter(unEstudiante -> unEstudiante.promedio == valorMaximo)
-                .forEach(estudiante -> miEstudiante.append(estudiante.nombre).append(" ").append(estudiante.apellido));
-                return miEstudiante;
+                .forEach(estudiante -> estudianteMayorPromedio.append(estudiante.nombre).append(" ").append(estudiante.apellido));
+                return estudianteMayorPromedio;
+    }
 
+    public static StringBuilder menorPromedio(List<Estudiante> e) {
+        StringBuilder estudianteMenorPromedio = new StringBuilder();
+        double valorMinimo = e.stream().map(estudiante -> estudiante.promedio).min(Double::compare).orElseThrow();
+        e.stream()
+                .filter(unEstudiante -> unEstudiante.promedio == valorMinimo)
+                .forEach(estudiante -> estudianteMenorPromedio.append(estudiante.nombre).append(" ").append(estudiante.apellido));
+        return estudianteMenorPromedio;
     }
 }

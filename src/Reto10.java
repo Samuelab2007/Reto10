@@ -23,7 +23,8 @@ public class Reto10 {
         estudiantes.add(new Estudiante("Daniela", "Gomez", 4.3));
         estudiantes.add(new Estudiante("Sara", "Camargo", 4.5));
         System.out.println("Media de promedios de los estudiantes:" + Estudiante.mediaPromediosEstudiantes(estudiantes));
-        System.out.println("Estudiante con mejor promedio:" + Estudiante.mayorPromedio(estudiantes));
+        System.out.println("Estudiante con mayor promedio:" + Estudiante.mayorPromedio(estudiantes));
+        System.out.println("Estudiante con menor promedio:" + Estudiante.menorPromedio(estudiantes));
     }
 
     public static int sumaDeDigitos(int n){
