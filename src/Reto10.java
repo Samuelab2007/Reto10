@@ -1,19 +1,34 @@
-import java.util.ArrayList;
-import java.util.List;
+/*
+* Hecho por:
+*           Efraín García Valencia(1001370984)
+*           Samuel Acevedo Bustamante(1001016099)
+* */
+
+
+import java.util.*;
 
 public class Reto10 {
 
     public static void main(String[] args){
-
-        System.out.println(sumaDeDigitos(5876));
-
+        
         ArrayList<Double> numeros = new ArrayList<>();
         numeros.add(1.2);
         numeros.add(5.0);
         numeros.add(4.0);
         numeros.add(45.32);
         numeros.add(100.0);
-        System.out.println(raicesCuadradas(numeros));
+
+        HashSet<String> caracteres = new HashSet<>();
+
+        caracteres.add("cinco");
+        caracteres.add("holistico");
+        caracteres.add("Adios");
+        caracteres.add("Algoritmo");
+        caracteres.add("a");
+        System.out.println("Las palabras con más de cinco caracteres son: " + depuradorStrings(caracteres));
+        System.out.println("El factorial del numero 7 es: "+factorial(7));
+        System.out.println("La suma de digitos de 356428 es: "+sumaDeDigitos(356428));
+        System.out.println("La raiz cuadrada de los numeros de la lista: "+numeros+" es: "+raicesCuadradas(numeros));
 
         List<Estudiante> estudiantes = new ArrayList<>();
         estudiantes.add(new Estudiante("Juan", "Robledo", 3.6));
@@ -39,6 +54,14 @@ public class Reto10 {
                 .toList();
     }
 
+    public  static long factorial(long n){
+        return n == 1 ? 1 : n * factorial(n-1);
+    }
 
+    public static List<String> depuradorStrings(Set<String> palabras){
+        return palabras.stream()
+                .filter(a -> a.length() >= 5)
+                .toList();
+    }
 
 }
